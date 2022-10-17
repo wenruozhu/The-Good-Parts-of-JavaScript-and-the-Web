@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Getters and Setters
+    function make_temperature(temperature) {
+        return {
+            get celsius() {
+                return temperature
+            },
+            set celsius(value) {
+                console.log(value)
+                temperature = value
+            },
+            get fahrenheit() {
+                return temperature * 9 / 5 + 32
+            },
+            set fahrenheit(value) {
+                console.log(value)
+                temperature = (value - 32) * 9 / 5
+            }
+        }
+    }
+    const obj = { temperature: 32 }
+    console.log(make_temperature(obj.temperature))
+    obj.temperature = 10
+    console.log(make_temperature(obj.temperature))
+</script>
+
+</html>

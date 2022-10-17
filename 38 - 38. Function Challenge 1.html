@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var three = identityf(3);
+    // three()
+    function log(arg) {
+        document.writeln(arg)
+    }
+    function identityf(x) {
+        return function () {
+            return x
+        }
+        // 
+    }
+    var three = identityf(8);
+    log(three())
+    function addf(first) {
+        console.log(first)
+        return function (second) {
+            console.log(second)
+            return first + second
+        }
+    }
+    log(addf(2)(3))
+    function liftf(binary) {
+        // console.log(first)
+        return function (first) {
+            // console.log(second)
+            return function (second) {
+                // console.log(second)
+                return binary(first, second)
+            }
+        }
+    }
+    function binary(a, b) {
+        return a * b
+    }
+    // 高阶函数是接收其他函数作为参数的函数
+    log(liftf(binary)(2)(3))
+
+</script>
+
+</html>

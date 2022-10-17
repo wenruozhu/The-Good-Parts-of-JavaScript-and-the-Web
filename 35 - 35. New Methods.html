@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Object.keys
+    if (!Object.hasOwnProperty('keys')) {
+        Object.keys = function (object) {
+            var name, results = [];
+            for (name in object) {
+                if (Object.prototype.hasOwnProperty.call(object, name)) {
+                    results.push(name)
+                }
+            }
+            return results;
+        }
+    }
+    // Object.create
+    if (!Object.hasOwnProperty('create')) {
+        Object.create = function (object, properties) {
+            var result;
+            function F() { }
+            F.prototype = object;
+            result = new F();
+            if (properties !== undefined) {
+                Object.defineProperties(object, properties)
+            }
+            return result;
+        }
+    }
+</script>
+
+</html>

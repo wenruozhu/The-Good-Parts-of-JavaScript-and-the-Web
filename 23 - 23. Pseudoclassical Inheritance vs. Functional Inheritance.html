@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function gizmo(id) { //gizmo 小控件
+        return {
+            toString: function () {
+                return 'gizmo ' + id;
+
+            }
+        }
+    }
+    function hoozit(id) {
+        var that = gizmo(id)
+        console.log(that)
+        that.test = function (testid) {
+            console.log(testid)
+            return testid === id
+        }
+    }
+    /* function Gizmo(id) {
+        this.id = id
+
+    }
+    function Hoozit(id) {
+        this.id = id;
+    }
+    Hoozit.prototype = new Gizmo();
+    Hoozit.prototype.test = function (id) {
+        return this.id = id;
+    }
+    var my_hoozit = new Hoozit('success'), */
+    var my_hoozit = hoozit('success')
+    test = my_hoozit.test;
+    alert(test('success'))
+</script>
+
+</html>
